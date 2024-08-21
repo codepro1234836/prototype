@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+    
+
+<html lang="tr"id="22">
+<body id="23">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+body{
+    background-color: red;
+}
+h2{
+    margin-left: 800px;
+}
+.link-button{
+    background-color: chartreuse;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 900px;
+}
+    </style>
+    
+</head>
+<body id="21">
+
+    <h2>Email Veya Şifre Hatalı</h2>
+    
+    <!-- Bağlantı -->
+    <a href="#" class="link-button" id="runScript">Tekrar Dene</a>
+
+    <!-- JavaScript dosyasını sayfaya ekle -->
+    <script>
+        // JavaScript dosyasını yükleme
+        document.getElementById('runScript').addEventListener('click', function(event) {
+            event.preventDefault(); // Bağlantının varsayılan davranışını engelle
+
+            // JavaScript dosyasını dinamik olarak yükle
+            var script = document.createElement('script');
+            script.src = 'dom2.js'; // Yüklemek istediğiniz JavaScript dosyasının yolu
+            document.body.appendChild(script); // Script'i sayfaya ekle
+        });
+    </script>
+
+</body>
+<link rel="stylesheet" href="style.css">
+</body>
+</html>
+

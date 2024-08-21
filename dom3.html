@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+        <body>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Giriş Sayfası</title>
+                <script>
+                    // Gizli e-posta ve şifre
+                    const hiddenEmail = "@viewmail.com"; // Gizli e-posta
+                    const hiddenPassword = "*****"; // Gizli şifre
+            
+                    // Giriş kontrolü
+                    function giris(email, sifre) {
+                        // Kullanıcının girdiği bilgileri kontrol et
+                        if (email === hiddenEmail && sifre === hiddenPassword) {
+                            alert("Giriş başarılı");
+                            localStorage.setItem('isLoggedIn', 'true'); // Kullanıcının giriş yaptığını localStorage'da sakla
+                            window.location.href = 'dom3.html'; // Başarılı girişte yönlendirme
+                        } else {
+                            alert("Yanlış bilgi"); // Hata mesajı
+                            window.location.href = 'yanlis_bilgi.html'; // Yanlış bilgi durumunda yönlendirme
+                        }
+                    }
+            
+                    // Çıkış yapma fonksiyonu
+                    function cikis() {
+                        localStorage.removeItem('isLoggedIn'); // Giriş bilgilerini temizle
+                        alert("Çıkış yapıldı");
+                        window.location.href = 'index2.html'; // Ana sayfaya yönlendir
+                    }
+            
+                    // Sayfa yüklendiğinde kontrol et
+                    window.onload = function() {
+                        // Eğer kullanıcı zaten giriş yaptıysa, direkt olarak dom.html'e yönlendir
+                        if (localStorage.getItem('isLoggedIn') === 'true') {
+                            // Giriş yapmışsa, burada kullanıcıya bilgi verebilirsiniz
+                            document.getElementById("logoutButton").style.display = "block"; // Çıkış butonunu göster
+                        } else {
+                            var email = prompt("Email:");
+                            var sifre = prompt("Şifre:");
+                            giris(email, sifre); // Giriş fonksiyonunu çağır
+                        }
+                    };
+            
+                    // Çıkış butonuna tıklama olayı
+                    document.addEventListener("DOMContentLoaded", function() {
+                        document.getElementById("logoutButton").addEventListener("click", cikis);
+                    });
+                </script>
+            </head>
+            <body>
+                <h1>Hoş geldiniz!</h1>
+                
+                <!-- Çıkış yapma butonu, başlangıçta gizli -->
+                <button id="logoutButton" style="display: none;">Çıkış Yap</button>
+            </body>
+            <head>
+                <script src="dom2.js"></script>
+                    </head>
+            
+            <p class="intro1" id="intro1">İlk Paragraf</p>
+            <p class="intro2" id="intro2">2 Paragraf</p>
+            <p class="intro3" id="intro3">3 Paragraf</p>
+            <p class="intro4" id="intro4">4 Paragraf</p>
+        
+            <ul>
+                <li>kuzey</li>
+                <li>kayra</li>
+                <li>elif</li>
+                <li>cüneyt</li>
+                <li>kuzey</li>
+                <li>kayra</li>
+                <li>elif</li>
+                <li>cüneyt</li>
+                <li>kuzey</li>
+                <li>kayra</li>
+                <li>elif</li>
+                <li>cüneyt</li>
+                <li>kuzey</li>
+                <li>kayra</li>
+                <li>elif</li>
+                <li>cüneyt</li>
+            </ul>
+            <p id="mesaj"></p>
+            <input type="text" name="ad" value="Kuzey">
+            <h1>kuzey</h1>
+            <h1 id="yazar"></h1>
+            <p id="agac">
+                ağaç değeri
+            </p>
+            <div id="1">
+                <p id="p1">bu kısım p1</p>
+                <p id="p2">bu kısım p2</p>
+            </div>
+            <script src="dom.js"></script>
+           <link rel="stylesheet" href="style.css">
+        </body>
+</html>

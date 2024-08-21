@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+</head>
+<body>
+
+    <h1>Anasayfa</h1>
+    <style>
+        h1{
+            padding-left: 900px;
+        }
+        body{
+            background-color: aqua;
+        }
+    </style>
+    
+    <!-- Bağlantı -->
+    <a href="#" class="link-button" id="runScript">Giriş Yap</a>
+
+    <!-- JavaScript dosyasını sayfaya ekle -->
+    <script>
+        // JavaScript dosyasını yükleme
+        document.getElementById('runScript').addEventListener('click', function(event) {
+            event.preventDefault(); // Bağlantının varsayılan davranışını engelle
+
+            // JavaScript dosyasını dinamik olarak yükle
+            var script = document.createElement('script');
+            script.src = 'dom2.js'; // Yüklemek istediğiniz JavaScript dosyasının yolu
+            document.body.appendChild(script); // Script'i sayfaya ekle
+        });
+    </script>
+
+</body>
+</html>

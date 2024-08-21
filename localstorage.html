@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Sayfası</title>
+    <script>
+        // Gizli e-posta ve şifre
+        const hiddenEmail = "@viewmail.com"; // Gizli e-posta
+        const hiddenPassword = "*****"; // Gizli şifre
+
+        // Giriş kontrolü
+        function giris(email, sifre) {
+            // Kullanıcının girdiği bilgileri kontrol et
+            if (email === hiddenEmail && sifre === hiddenPassword) {
+                alert("Giriş başarılı");
+                localStorage.setItem('isLoggedIn', 'true'); // Kullanıcının giriş yaptığını localStorage'da sakla
+                window.location.href = 'dom3.html'; // Başarılı girişte yönlendirme
+            } else {
+                alert("Yanlış bilgi"); // Hata mesajı
+                window.location.href = 'yanlis_bilgi.html'; // Yanlış bilgi durumunda yönlendirme
+            }
+        }
+
+        // Çıkış yapma fonksiyonu
+        function cikis() {
+            localStorage.removeItem('isLoggedIn'); // Giriş bilgilerini temizle
+            alert("Çıkış yapıldı");
+            window.location.href = 'index2.html'; // Ana sayfaya yönlendir
+        }
+
+        // Sayfa yüklendiğinde kontrol et
+        window.onload = function() {
+            // Eğer kullanıcı zaten giriş yaptıysa, direkt olarak dom.html'e yönlendir
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                // Çıkış butonunu göster
+                document.getElementById("logoutButton").style.display = "block"; // Çıkış butonunu göster
+            } else {
+                var email = prompt("Email:");
+                var sifre = prompt("Şifre:");
+                giris(email, sifre); // Giriş fonksiyonunu çağır
+            }
+        };
+
+        // Çıkış butonuna tıklama olayı
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("logoutButton").addEventListener("click", cikis);
+        });
+    </script>
+</head>
+<body>
+    <h1>Hoş geldiniz!</h1>
+    
+    <!-- Çıkış yapma butonu, başlangıçta gizli -->
+    <button id="logoutButton" style="display: none;">Çıkış Yap</button>
+</body>
+
+</html>
